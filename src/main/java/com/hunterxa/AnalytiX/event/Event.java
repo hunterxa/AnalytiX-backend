@@ -1,5 +1,6 @@
-package com.hunterxa.AnalytiX.entity;
+package com.hunterxa.AnalytiX.event;
 
+import com.hunterxa.AnalytiX.user.User;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
