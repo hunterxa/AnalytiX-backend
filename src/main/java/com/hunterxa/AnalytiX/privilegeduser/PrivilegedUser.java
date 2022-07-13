@@ -1,5 +1,6 @@
 package com.hunterxa.AnalytiX.privilegeduser;
 
+import com.hunterxa.AnalytiX.organization.Organization;
 import com.hunterxa.AnalytiX.user.User;
 import com.hunterxa.AnalytiX.privilege.Privilege;
 
@@ -22,5 +23,6 @@ public class PrivilegedUser {
     )
     private Long id;
     private User user;
+    private Organization organization;
     private List<Privilege> privileges;
 }
