@@ -1,7 +1,5 @@
-package com.hunterxa.AnalytiX.controller;
+package com.hunterxa.AnalytiX.event;
 
-import com.hunterxa.AnalytiX.entity.Event;
-import com.hunterxa.AnalytiX.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

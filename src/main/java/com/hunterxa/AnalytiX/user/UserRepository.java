@@ -1,6 +1,6 @@
-package com.hunterxa.AnalytiX.repository;
+package com.hunterxa.AnalytiX.user;
 
-import com.hunterxa.AnalytiX.entity.User;
+import com.hunterxa.AnalytiX.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,7 +1,7 @@
-package com.hunterxa.AnalytiX.service;
+package com.hunterxa.AnalytiX.user;
 
-import com.hunterxa.AnalytiX.entity.User;
-import com.hunterxa.AnalytiX.repository.UserRepository;
+import com.hunterxa.AnalytiX.user.User;
+import com.hunterxa.AnalytiX.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

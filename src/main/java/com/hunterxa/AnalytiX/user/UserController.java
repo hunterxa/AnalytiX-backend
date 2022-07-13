@@ -1,7 +1,5 @@
-package com.hunterxa.AnalytiX.controller;
+package com.hunterxa.AnalytiX.user;
 
-import com.hunterxa.AnalytiX.entity.User;
-import com.hunterxa.AnalytiX.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
