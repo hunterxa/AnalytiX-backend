@@ -28,7 +28,8 @@ public class Event {
     private LocalDate date;
     private Integer attendance;
     @ManyToOne(
-            cascade = CascadeType.ALL
+            cascade = CascadeType.PERSIST,
+            fetch = FetchType.LAZY
     )
     @JoinColumn(
             name = "creator_id",

@@ -27,6 +27,10 @@ public class EventService {
         eventRepository.save(event);
     }
 
+    public List<Event> getEventsByUser(User user) {
+        return eventRepository.findByCreatorId(user.getId());
+    }
+
 
 
 }

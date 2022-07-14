@@ -2,6 +2,7 @@ package com.hunterxa.AnalytiX.user;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -10,12 +11,17 @@ import javax.persistence.*;
         @UniqueConstraint(
                 name = "unique_user_email_constraint",
                 columnNames = "email"
+        ),
+        @UniqueConstraint(
+                name = "unique_username_constraint",
+                columnNames = "username"
         )
     },
     name = "users"
 )
 @Data
 @NoArgsConstructor
+@ToString(exclude = {"id", "email"})
 public class User {
 
     @Id
@@ -47,4 +53,13 @@ public class User {
         this.name = name;
     }
 
+
+    public String toStringDev() {
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", username='" + username + '\'' +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }
