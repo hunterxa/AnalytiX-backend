@@ -16,15 +16,14 @@ public class EventService {
     @Autowired
     private UserRepository userRepository;
 
-
-    public List<Event> getEvents() {
-        return eventRepository.findAll();
-    }
-
     public void addNewEvent(Event event) {
         Optional<User> user = userRepository.findByEmail(event.getCreator().getEmail());
         user.ifPresent(event::setCreator);
         eventRepository.save(event);
+    }
+
+    public List<Event> getEvents() {
+        return eventRepository.findAll();
     }
 
     public List<Event> getEventsByUser(User user) {

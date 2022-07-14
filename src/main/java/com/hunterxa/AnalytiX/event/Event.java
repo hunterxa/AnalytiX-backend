@@ -3,6 +3,7 @@ package com.hunterxa.AnalytiX.event;
 import com.hunterxa.AnalytiX.user.User;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -11,6 +12,7 @@ import java.time.LocalDate;
 @Table(name = "events")
 @Data
 @NoArgsConstructor
+@ToString(exclude = "id")
 public class Event {
 
     @Id
@@ -32,7 +34,7 @@ public class Event {
             fetch = FetchType.LAZY
     )
     @JoinColumn(
-            name = "creator_id",
+            name = "fk_creator_id",
             referencedColumnName = "id"
     )
     private User creator;

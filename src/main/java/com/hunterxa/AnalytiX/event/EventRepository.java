@@ -17,7 +17,7 @@ public interface EventRepository extends JpaRepository<Event, Long> {
     Optional<Event> findByDate(LocalDate date);
 
     @Query(
-            value = "SELECT * FROM events e WHERE e.creator_id = :creatorId",
+            value = "SELECT * FROM events e WHERE e.fk_creator_id = :creatorId",
             nativeQuery = true
     )
     List<Event> findByCreatorId(@Param("creatorId") Long creatorId);

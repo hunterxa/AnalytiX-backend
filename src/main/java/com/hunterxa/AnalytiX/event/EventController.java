@@ -21,15 +21,14 @@ public class EventController {
         this.userService = userService;
     }
 
+    @PostMapping
+    public void addNewEvent(@RequestBody Event event) {
+        eventService.addNewEvent(event);
+    }
+
     @GetMapping
     public List<Event> getEvents() {
         return eventService.getEvents();
-    }
-
-    @PostMapping
-    public void addNewEvent(@RequestBody Event event) {
-        System.out.println(event.getCreator().toString());
-        eventService.addNewEvent(event);
     }
 
     @GetMapping(path = "{username}")
