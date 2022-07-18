@@ -31,7 +31,7 @@ public class EventController {
         return eventService.getEvents();
     }
 
-    @GetMapping(path = "{username}")
+    @GetMapping(path = "/username/{username}")
     public List<Event> getEventsByUserId(@PathVariable("username") String username) {
         List<Event> events;
         Optional<User> user = userService.getUserByUsername(username);

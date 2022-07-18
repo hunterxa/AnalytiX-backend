@@ -1,5 +1,7 @@
 package com.hunterxa.AnalytiX.event;
 
+import com.hunterxa.AnalytiX.organization.Organization;
+import com.hunterxa.AnalytiX.organization.OrganizationRepository;
 import com.hunterxa.AnalytiX.user.User;
 import com.hunterxa.AnalytiX.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +17,18 @@ public class EventService {
     private EventRepository eventRepository;
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private OrganizationRepository organizationRepository;
 
     public void addNewEvent(Event event) {
         Optional<User> user = userRepository.findByEmail(event.getCreator().getEmail());
-        user.ifPresent(event::setCreator);
+        if (user.isEmpty()) throw new IllegalStateException("no user found with that email");
+
+        Optional<Organization> organization = organizationRepository.findByName(event.getOrganization().getName());
+        if (organization.isEmpty()) throw new IllegalStateException("no organization found with that name");
+
+        event.setCreator(user.get());
+        event.setOrganization(organization.get());
         eventRepository.save(event);
     }
 
