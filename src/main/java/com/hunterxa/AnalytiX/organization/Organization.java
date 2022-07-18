@@ -56,7 +56,7 @@ public class Organization {
     private List<User> members;
 
 
-//    @ManyToMany(cascade = CascadeType.ALL)
+//    @ManyToMany(cascade = CascadeType.Persist)
 //    @JoinTable()
 //    private List<PrivilegedUser> privilegedMembers;
 
@@ -64,6 +64,7 @@ public class Organization {
         members.add(user);
     }
 
+    //print function for debugging and testing
     public void printMembersDev() {
         for (User m : members) System.out.println(m.toStringDev());
     }

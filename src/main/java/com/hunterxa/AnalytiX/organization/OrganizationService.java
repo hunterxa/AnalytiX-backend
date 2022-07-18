@@ -5,6 +5,7 @@ import com.hunterxa.AnalytiX.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -32,5 +33,16 @@ public class OrganizationService {
         //TODO: organization.addPrivilegedMember(user);
 
         organizationRepository.save(organization);
+    }
+
+    @Transactional
+    public void addMemberToOrganization(Organization organization, User member) {
+        Optional<Organization> org = organizationRepository.findByName(organization.getName());
+        if (org.isEmpty()) throw new IllegalStateException("no organization found with that name");
+
+        Optional<User> user = userRepository.findByEmail(member.getEmail());
+        if (user.isEmpty()) throw new IllegalStateException("no user found with that name");
+
+        org.get().addMember(user.get());
     }
 }
